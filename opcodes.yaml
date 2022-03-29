@@ -1,0 +1,417 @@
+OP_0, OP_FALSE:
+  hex: '0x00'
+  input: Nothing.
+  opcode: '0'
+  output: (empty value)
+Pushdata Bytelength:
+  hex: 0x01-0x4b
+  input: (special)
+  opcode: 1-75
+  output: data
+OP_PUSHDATA1:
+  hex: '0x4c'
+  input: (special)
+  opcode: '76'
+  output: data
+OP_PUSHDATA2:
+  hex: '0x4d'
+  input: (special)
+  opcode: '77'
+  output: data
+OP_PUSHDATA4:
+  hex: '0x4e'
+  input: (special)
+  opcode: '78'
+  output: data
+OP_1NEGATE:
+  hex: '0x4f'
+  input: Nothing.
+  opcode: '79'
+  output: '-1'
+OP_1, OP_TRUE:
+  hex: '0x51'
+  input: Nothing.
+  opcode: '81'
+  output: '1'
+OP_2-OP_16:
+  hex: 0x52-0x60
+  input: Nothing.
+  opcode: 82-96
+  output: 2-16
+OP_NOP:
+  hex: '0x61'
+  input: Nothing
+  opcode: '97'
+  output: Nothing
+OP_VER DISABLED:
+  hex: '0x62'
+  input: Nothing
+  opcode: '98'
+  output: Protocol version
+OP_VERIFY:
+  hex: '0x69'
+  input: True / false
+  opcode: '105'
+  output: Nothing / fail
+OP_RETURN:
+  hex: '0x6a'
+  input: Nothing
+  opcode: '106'
+  output: Ends script with top value on stack as final result
+OP_TOALTSTACK:
+  hex: '0x6b'
+  input: x1
+  opcode: '107'
+  output: (alt)x1
+OP_FROMALTSTACK:
+  hex: '0x6c'
+  input: (alt)x1
+  opcode: '108'
+  output: x1
+OP_2DROP:
+  hex: '0x6d'
+  input: x1 x2
+  opcode: '109'
+  output: Nothing
+OP_2DUP:
+  hex: '0x6e'
+  input: x1 x2
+  opcode: '110'
+  output: x1 x2 x1 x2
+OP_3DUP:
+  hex: '0x6f'
+  input: x1 x2 x3
+  opcode: '111'
+  output: x1 x2 x3 x1 x2 x3
+OP_2OVER:
+  hex: '0x70'
+  input: x1 x2 x3 x4
+  opcode: '112'
+  output: x1 x2 x3 x4 x1 x2
+OP_2ROT:
+  hex: '0x71'
+  input: x1 x2 x3 x4 x5 x6
+  opcode: '113'
+  output: x3 x4 x5 x6 x1 x2
+OP_2SWAP:
+  hex: '0x72'
+  input: x1 x2 x3 x4
+  opcode: '114'
+  output: x3 x4 x1 x2
+OP_IFDUP:
+  hex: '0x73'
+  input: x
+  opcode: '115'
+  output: x / x x
+OP_DEPTH:
+  hex: '0x74'
+  input: Nothing
+  opcode: '116'
+  output: <Stack size>
+OP_DROP:
+  hex: '0x75'
+  input: x
+  opcode: '117'
+  output: Nothing
+OP_DUP:
+  hex: '0x76'
+  input: x
+  opcode: '118'
+  output: x x
+OP_NIP:
+  hex: '0x77'
+  input: x1 x2
+  opcode: '119'
+  output: x2
+OP_OVER:
+  hex: '0x78'
+  input: x1 x2
+  opcode: '120'
+  output: x1 x2 x1
+OP_PICK:
+  hex: '0x79'
+  input: xn ... x2 x1 x0 <n>
+  opcode: '121'
+  output: xn ... x2 x1 x0 xn
+OP_ROLL:
+  hex: '0x7a'
+  input: xn ... x2 x1 x0 <n>
+  opcode: '122'
+  output: '... x2 x1 x0 xn'
+OP_ROT:
+  hex: '0x7b'
+  input: x1 x2 x3
+  opcode: '123'
+  output: x2 x3 x1
+OP_SWAP:
+  hex: '0x7c'
+  input: x1 x2
+  opcode: '124'
+  output: x2 x1
+OP_TUCK:
+  hex: '0x7d'
+  input: x1 x2
+  opcode: '125'
+  output: x2 x1 x2
+OP_CAT:
+  hex: '0x7e'
+  input: x1 x2
+  opcode: '126'
+  output: out
+OP_SPLIT:
+  hex: '0x7f'
+  input: x n
+  opcode: '127'
+  output: x1 x2
+OP_NUM2BIN:
+  hex: '0x80'
+  input: a b
+  opcode: '128'
+  output: out
+OP_BIN2NUM:
+  hex: '0x81'
+  input: x
+  opcode: '129'
+  output: out
+OP_SIZE:
+  hex: '0x82'
+  input: in
+  opcode: '130'
+  output: in size
+OP_INVERT:
+  hex: '0x83'
+  input: in
+  opcode: '131'
+  output: out
+OP_AND:
+  hex: '0x84'
+  input: x1 x2
+  opcode: '132'
+  output: out
+OP_OR:
+  hex: '0x85'
+  input: x1 x2
+  opcode: '133'
+  output: out
+OP_XOR:
+  hex: '0x86'
+  input: x1 x2
+  opcode: '134'
+  output: out
+OP_EQUAL:
+  hex: '0x87'
+  input: x1 x2
+  opcode: '135'
+  output: True / false
+OP_EQUALVERIFY:
+  hex: '0x88'
+  input: x1 x2
+  opcode: '136'
+  output: Nothing / fail
+OP_1ADD:
+  hex: '0x8b'
+  input: in
+  opcode: '139'
+  output: out
+OP_1SUB:
+  hex: '0x8c'
+  input: in
+  opcode: '140'
+  output: out
+OP_2MUL  DISABLED:
+  hex: '0x8d'
+  input: in
+  opcode: '141'
+  output: out
+OP_2DIV  DISABLED:
+  hex: '0x8e'
+  input: in
+  opcode: '142'
+  output: out
+OP_NEGATE:
+  hex: '0x8f'
+  input: in
+  opcode: '143'
+  output: out
+OP_ABS:
+  hex: '0x90'
+  input: in
+  opcode: '144'
+  output: out
+OP_NOT:
+  hex: '0x91'
+  input: in
+  opcode: '145'
+  output: out
+OP_0NOTEQUAL:
+  hex: '0x92'
+  input: in
+  opcode: '146'
+  output: out
+OP_ADD:
+  hex: '0x93'
+  input: a b
+  opcode: '147'
+  output: out
+OP_SUB:
+  hex: '0x94'
+  input: a b
+  opcode: '148'
+  output: out
+OP_MUL:
+  hex: '0x95'
+  input: a b
+  opcode: '149'
+  output: out
+OP_DIV:
+  hex: '0x96'
+  input: a b
+  opcode: '150'
+  output: out
+OP_MOD:
+  hex: '0x97'
+  input: a b
+  opcode: '151'
+  output: out
+OP_LSHIFT:
+  hex: '0x98'
+  input: a b
+  opcode: '152'
+  output: out
+OP_RSHIFT:
+  hex: '0x99'
+  input: a b
+  opcode: '153'
+  output: out
+OP_BOOLAND:
+  hex: '0x9a'
+  input: a b
+  opcode: '154'
+  output: out
+OP_BOOLOR:
+  hex: '0x9b'
+  input: a b
+  opcode: '155'
+  output: out
+OP_NUMEQUAL:
+  hex: '0x9c'
+  input: a b
+  opcode: '156'
+  output: out
+OP_NUMEQUALVERIFY:
+  hex: '0x9d'
+  input: a b
+  opcode: '157'
+  output: Nothing / fail
+OP_NUMNOTEQUAL:
+  hex: '0x9e'
+  input: a b
+  opcode: '158'
+  output: out
+OP_LESSTHAN:
+  hex: '0x9f'
+  input: a b
+  opcode: '159'
+  output: out
+OP_GREATERTHAN:
+  hex: '0xa0'
+  input: a b
+  opcode: '160'
+  output: out
+OP_LESSTHANOREQUAL:
+  hex: '0xa1'
+  input: a b
+  opcode: '161'
+  output: out
+OP_GREATERTHANOREQUAL:
+  hex: '0xa2'
+  input: a b
+  opcode: '162'
+  output: out
+OP_MIN:
+  hex: '0xa3'
+  input: a b
+  opcode: '163'
+  output: out
+OP_MAX:
+  hex: '0xa4'
+  input: a b
+  opcode: '164'
+  output: out
+OP_WITHIN:
+  hex: '0xa5'
+  input: x min max
+  opcode: '165'
+  output: out
+OP_RIPEMD160:
+  hex: '0xa6'
+  input: in
+  opcode: '166'
+  output: hash
+OP_SHA1:
+  hex: '0xa7'
+  input: in
+  opcode: '167'
+  output: hash
+OP_SHA256:
+  hex: '0xa8'
+  input: in
+  opcode: '168'
+  output: hash
+OP_HASH160:
+  hex: '0xa9'
+  input: in
+  opcode: '169'
+  output: hash
+OP_HASH256:
+  hex: '0xaa'
+  input: in
+  opcode: '170'
+  output: hash
+OP_CODESEPARATOR:
+  hex: '0xab'
+  input: Nothing
+  opcode: '171'
+  output: Nothing
+OP_CHECKSIG:
+  hex: '0xac'
+  input: sig pubkey
+  opcode: '172'
+  output: True / false
+OP_CHECKSIGVERIFY:
+  hex: '0xad'
+  input: sig pubkey
+  opcode: '173'
+  output: Nothing / fail
+OP_CHECKMULTISIG:
+  hex: '0xae'
+  input: x sig1 sig2 ... <number of signatures> pub1 pub2 <number of public keys>
+  opcode: '174'
+  output: True / False
+OP_CHECKMULTISIGVERIFY:
+  hex: '0xaf'
+  input: x sig1 sig2 ... <number of signatures> pub1 pub2 ... <number of public keys>
+  opcode: '175'
+  output: Nothing / fail
+? 'OP_NOP2
+
+  (previously OP_CHECKLOCKTIMEVERIFY)'
+: hex: '0xb1'
+  input: 'Nothing
+
+    (Previously: x)'
+  opcode: '177'
+  output: 'Nothing
+
+    (Previously: x or fail)'
+? 'OP_NOP3
+
+  (previously OP_CHECKSEQUENCEVERIFY)'
+: hex: '0xb2'
+  input: 'Nothing
+
+    (Previously: x)'
+  opcode: '178'
+  output: 'Nothing
+
+    (Previously: x or fail)'

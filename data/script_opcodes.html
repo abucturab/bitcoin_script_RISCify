@@ -1,0 +1,1573 @@
+
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Opcodes used in Bitcoin Script - Bitcoin Wiki</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Opcodes_used_in_Bitcoin_Script","wgTitle":"Opcodes used in Bitcoin Script","wgCurRevisionId":2718,"wgRevisionId":2718,"wgArticleId":2,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Opcodes_used_in_Bitcoin_Script","wgRelevantArticleId":2,"wgRequestId":"0f24474eb19b72c39374acc2","wgCSPNonce":false,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"ready","user.tokens":"loading","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.toc.styles":"ready","skins.bootstrap":"ready"});mw.loader.implement("user.tokens@0tffind",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","skins.bootstrap.js"];mw.loader.load(RLPAGEMODULES);});</script>
+<link rel="stylesheet" href="/load.php?lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.toc.styles%7Cskins.bootstrap&amp;only=styles&amp;skin=bootstrap"/>
+<script async="" src="/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;skin=bootstrap"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<meta name="generator" content="MediaWiki 1.33.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<link rel="stylesheet" href="/skins/Bootstrap/resources/fonts.css"/>
+<link rel="shortcut icon" href="/skins/Bootstrap/resources/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Bitcoin Wiki (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.bitcoinsv.io/api.php?action=rsd"/>
+<!--[if lt IE 9]><script src="/load.php?lang=en&amp;modules=html5shiv&amp;only=scripts&amp;skin=Bootstrap&amp;sync=1"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Opcodes_used_in_Bitcoin_Script rootpage-Opcodes_used_in_Bitcoin_Script skin-bootstrap action-view">		<nav class="navbar navbar-expand flex-column flex-md-row bd-navbar">
+			<a href="/index.php/Main_Page" class="navbar-brand" title="Visit the main page"><img src="/skins/Bootstrap/resources/bitcoin_sv_white.svg" height="30" alt="Portal logo"/><span class="subtitle">Wiki</span></a>			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+									</ul>
+				<div>
+
+					<ul class="navbar-nav">
+						<li id="ca-view" class="nav-item"><a href="/index.php/Opcodes_used_in_Bitcoin_Script" redundant="1" class="nav-link">View</a></li><li id="ca-viewsource" class="nav-item"><a href="/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;action=edit" title="This page is protected.&#10;You can view its source [e]" accesskey="e" class="nav-link">View source</a></li>
+						<li class="nav-item">
+							<li class="nav-item dropdown" id="p-personal"><a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">Personal tools</a><div class="dropdown-menu dropdown-menu-right"><span id="pt-login"><a href="/index.php?title=Special:UserLogin&amp;returnto=Opcodes+used+in+Bitcoin+Script" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o" class="dropdown-item">Log in</a></span></div></li>						</li>
+					</ul>
+									</div>
+			</div>
+		</nav>
+		<div id="mw-wrapper" class="container-fluid">
+			<div class="row flex-xl-nowrap">
+				<div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+					<form action="/index.php" role="search" class="bd-search d-flex align-items-center" id="p-search"><input type="hidden" value="Special:Search" name="title"/><input type="search" name="search" placeholder="Search..." title="Search Bitcoin Wiki [f]" accesskey="f" id="searchInput" class="form-control ds-input" autocomplete="off"/></form>					<div id="toc" class="toc"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h5><span class="nav-title">Page Contents</span></h5><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Constants"><span class="tocnumber">1</span> <span class="toctext">Constants</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Flow_control"><span class="tocnumber">2</span> <span class="toctext">Flow control</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Stack"><span class="tocnumber">3</span> <span class="toctext">Stack</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Data_Manipulation"><span class="tocnumber">4</span> <span class="toctext">Data Manipulation</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Bitwise_logic"><span class="tocnumber">5</span> <span class="toctext">Bitwise logic</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Arithmetic"><span class="tocnumber">6</span> <span class="toctext">Arithmetic</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Cryptography"><span class="tocnumber">7</span> <span class="toctext">Cryptography</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Used_NOP_opcode_identifiers"><span class="tocnumber">8</span> <span class="toctext">Used NOP opcode identifiers</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Pseudo-words"><span class="tocnumber">9</span> <span class="toctext">Pseudo-words</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Reserved_words"><span class="tocnumber">10</span> <span class="toctext">Reserved words</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Examples"><span class="tocnumber">11</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Attribution"><span class="tocnumber">12</span> <span class="toctext">Attribution</span></a></li>
+</ul>
+</div>					<div id="p-navigation">
+						<h5><span class="nav-title">Navigation</span></h5>
+						 <!-- If you do not want the words "Navigation" or "Tools" to appear, you can safely remove the line above. -->
+
+											<ul>
+					<li id="n-mainpage-description"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li>						</ul>
+										</div>
+										<div id="p-tb">
+						<h5><span class="nav-title">Tools</span></h5>
+						 <!-- If you do not want the words "Navigation" or "Tools" to appear, you can safely remove the line above. -->
+
+											<ul>
+					<li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/Opcodes_used_in_Bitcoin_Script" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/Opcodes_used_in_Bitcoin_Script" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;oldid=2718" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;action=info" title="More information about this page">Page information</a></li>						</ul>
+										</div>
+									</div>
+
+
+								<div class="col-12 col-md-9 col-xl-10 py-md-3 pl-md-5 bd-content" role="main">
+					<div class="mw-indicators mw-body-content">
+</div>
+<h1 class="firstHeading"><span class="page-title">Opcodes used in Bitcoin Script</span></h1>
+					<div class="mw-body-content">
+						<div id="contentSub"><p></p></div><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This is a list of all Script words, also known as opcodes, commands, or functions.
+</p><p>OP_NOP1-OP_NOP10 were originally set aside to be used when HASH and other security functions become insecure due to improvements in computing.
+</p><p>False is zero or negative zero (using any number of bytes) or an empty array, and True is anything else.
+</p>
+
+
+<h3><span class="mw-headline" id="Constants">Constants</span></h3>
+<p>When talking about scripts, these value-pushing words are usually omitted.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_0, OP_FALSE
+</td>
+<td>0
+</td>
+<td>0x00
+</td>
+<td>Nothing.
+</td>
+<td>(empty value)
+</td>
+<td>An empty array of bytes is pushed onto the stack. (This is not a no-op: an item is added to the stack.)
+</td></tr>
+<tr>
+<td><a href="/index.php/Pushdata_Opcodes" title="Pushdata Opcodes">Pushdata Bytelength</a>
+</td>
+<td>1-75
+</td>
+<td>0x01-0x4b
+</td>
+<td>(special)
+</td>
+<td>data
+</td>
+<td>The next <i>opcode</i> bytes is data to be pushed onto the stack
+</td></tr>
+<tr>
+<td><a href="/index.php/Pushdata_Opcodes" title="Pushdata Opcodes">OP_PUSHDATA1</a>
+</td>
+<td>76
+</td>
+<td>0x4c
+</td>
+<td>(special)
+</td>
+<td>data
+</td>
+<td>The next byte contains the number of bytes to be pushed onto the stack.
+</td></tr>
+<tr>
+<td><a href="/index.php/Pushdata_Opcodes" title="Pushdata Opcodes">OP_PUSHDATA2</a>
+</td>
+<td>77
+</td>
+<td>0x4d
+</td>
+<td>(special)
+</td>
+<td>data
+</td>
+<td>The next two bytes contain the number of bytes to be pushed onto the stack in little endian order.
+</td></tr>
+<tr>
+<td><a href="/index.php/Pushdata_Opcodes" title="Pushdata Opcodes">OP_PUSHDATA4</a>
+</td>
+<td>78
+</td>
+<td>0x4e
+</td>
+<td>(special)
+</td>
+<td>data
+</td>
+<td>The next four bytes contain the number of bytes to be pushed onto the stack in little endian order.
+</td></tr>
+<tr>
+<td>OP_1NEGATE
+</td>
+<td>79
+</td>
+<td>0x4f
+</td>
+<td>Nothing.
+</td>
+<td>-1
+</td>
+<td>The number -1 is pushed onto the stack.
+</td></tr>
+<tr>
+<td>OP_1, OP_TRUE
+</td>
+<td>81
+</td>
+<td>0x51
+</td>
+<td>Nothing.
+</td>
+<td>1
+</td>
+<td>The number 1 is pushed onto the stack.
+</td></tr>
+<tr>
+<td>OP_2-OP_16
+</td>
+<td>82-96
+</td>
+<td>0x52-0x60
+</td>
+<td>Nothing.
+</td>
+<td>2-16
+</td>
+<td>The number in the word name (2-16) is pushed onto the stack.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Flow_control">Flow control</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_NOP
+</td>
+<td>97
+</td>
+<td>0x61
+</td>
+<td>Nothing
+</td>
+<td>Nothing
+</td>
+<td>Does nothing.
+</td></tr>
+<tr>
+<td>OP_VER <b>DISABLED</b>
+</td>
+<td>98
+</td>
+<td>0x62
+</td>
+<td>Nothing
+</td>
+<td>Protocol version
+</td>
+<td>Puts the version of the protocol under which this transaction will be evaluated onto the stack.<br />
+<p>(This opcode is scheduled to be re-enabled in the Chronicle update)<br />
+</p>
+</td></tr>
+<tr>
+<td>OP_IF
+</td>
+<td>99
+</td>
+<td>0x63
+</td>
+<td colspan="2"><code> &lt;expression&gt; IF
+<pre>   [statements&gt;
+</pre>
+<p>ELSE
+</p>
+<pre>   [statements]
+</pre>
+</code><p><code>ENDIF</code>
+</p>
+</td>
+<td>If the top stack value is not FALSE, the statements between IF and ELSE are executed.<br />
+<p>If the top stack value is FALSE the statements between ELSE and ENDIF are executed.<br />
+The top stack value is removed.<br />
+</p>
+</td></tr>
+<tr>
+<td>OP_NOTIF
+</td>
+<td>100
+</td>
+<td>0x64
+</td>
+<td colspan="2"><code>&lt;expression&gt; NOTIF
+<pre>   [statements]
+</pre>
+<p>ELSE
+</p>
+<pre>   [statements]
+</pre>
+</code><p><code>ENDIF</code>
+</p>
+</td>
+<td>If the top stack value is FALSE, the statements between IF and ELSE are executed.<br />
+<p>If the top stack value is not FALSE the statements between ELSE and ENDIF are executed.<br />
+The top stack value is removed.<br />
+</p>
+</td></tr>
+<tr>
+<td>OP_VERIF <b>DISABLED</b>
+</td>
+<td>101
+</td>
+<td>0x65
+</td>
+<td colspan="2"><code> &lt;version&gt; VERIF<br />
+<pre>   [statements]<br />
+</pre>
+<p>ELSE<br />
+</p>
+<pre>   [statements]<br />
+</pre>
+</code><p><code>ENDIF</code><br />
+</p>
+</td>
+<td>If the top stack value is EQUAL to the version of the protocol under which this transaction will be evaluated, the statements between IF and ELSE are executed.<br />
+<p>If the top stack value is NOT EQUAL to the version of the protocol under which this transaction will be evaluated, the statements between ELSE and ENDIF are executed.<br />
+The top stack value is removed. (This opcode is scheduled to be re-enabled in the Chronicle update)<br />
+</p>
+</td></tr>
+<tr>
+<td>OP_VERNOTIF <b>DISABLED</b>
+</td>
+<td>102
+</td>
+<td>0x66
+</td>
+<td colspan="2"><code> &lt;version&gt; VERNOTIF<br />
+<pre>   [statements]<br />
+</pre>
+<p>ELSE<br />
+</p>
+<pre>   [statements]<br />
+</pre>
+</code><p><code>ENDIF</code><br />
+</p>
+</td>
+<td>If the top stack value is NOT EQUAL to the version of the protocol under which this transaction will be evaluated, the statements between IF and ELSE are executed.<br />
+<p>If the top stack value is EQUAL to the version of the protocol under which this transaction will be evaluated, the statements between ELSE and ENDIF are executed.<br />
+The top stack value is removed. (This opcode is scheduled to be re-enabled in the Chronicle update)
+</p>
+</td></tr>
+<tr>
+<td>OP_ELSE
+</td>
+<td>103
+</td>
+<td>0x67
+</td>
+<td colspan="2">&lt;expression&gt; if [statements] [else [statements]]* endif
+</td>
+<td>If the preceding OP_IF or OP_NOTIF or OP_ELSE was not executed then these statements are and if the preceding OP_IF or OP_NOTIF or OP_ELSE was executed then these statements are not.
+</td></tr>
+<tr>
+<td>OP_ENDIF
+</td>
+<td>104
+</td>
+<td>0x68
+</td>
+<td colspan="2">&lt;expression&gt; if [statements] [else [statements]]* endif
+</td>
+<td>Ends an if/else block. All blocks must end, or the transaction is <b>invalid</b>. An OP_ENDIF without a prior matching OP_IF or OP_NOTIF is also <b>invalid</b>.
+</td></tr>
+<tr>
+<td>OP_VERIFY
+</td>
+<td>105
+</td>
+<td>0x69
+</td>
+<td>True / false
+</td>
+<td>Nothing / <i>fail</i>
+</td>
+<td><b>Marks transaction as invalid</b> if top stack value is not true.  The top stack value is removed.
+</td></tr>
+<tr>
+<td><a href="/index.php/OP_RETURN" title="OP RETURN">OP_RETURN</a>
+</td>
+<td>106
+</td>
+<td>0x6a
+</td>
+<td>Nothing
+</td>
+<td><i>Ends script with top value on stack as final result</i>
+</td>
+<td>OP_RETURN can also be used to create "False Return" outputs with a scriptPubKey consisting of OP_FALSE OP_RETURN followed by data. Such outputs are provably unspendable and should be given a value of zero Satoshis. These outputs can be pruned from storage in the UTXO set, reducing its size. Currently the BitcoinSV network supports multiple FALSE RETURN outputs in a given transaction with each one capable of holding up to 100kB of data. After the Genesis upgrade in 2020 miners will be free to mine transactions containing FALSE RETURN outputs of any size.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Stack">Stack</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_TOALTSTACK
+</td>
+<td>107
+</td>
+<td>0x6b
+</td>
+<td>x1
+</td>
+<td>(alt)x1
+</td>
+<td>Puts the input onto the top of the alt stack. Removes it from the main stack.
+</td></tr>
+<tr>
+<td>OP_FROMALTSTACK
+</td>
+<td>108
+</td>
+<td>0x6c
+</td>
+<td>(alt)x1
+</td>
+<td>x1
+</td>
+<td>Puts the input onto the top of the main stack. Removes it from the alt stack.
+</td></tr>
+<tr>
+<td>OP_2DROP
+</td>
+<td>109
+</td>
+<td>0x6d
+</td>
+<td>x1 x2
+</td>
+<td>Nothing
+</td>
+<td>Removes the top two stack items.
+</td></tr>
+<tr>
+<td>OP_2DUP
+</td>
+<td>110
+</td>
+<td>0x6e
+</td>
+<td>x1 x2
+</td>
+<td>x1 x2 x1 x2
+</td>
+<td>Duplicates the top two stack items.
+</td></tr>
+<tr>
+<td>OP_3DUP
+</td>
+<td>111
+</td>
+<td>0x6f
+</td>
+<td>x1 x2 x3
+</td>
+<td>x1 x2 x3 x1 x2 x3
+</td>
+<td>Duplicates the top three stack items.
+</td></tr>
+<tr>
+<td>OP_2OVER
+</td>
+<td>112
+</td>
+<td>0x70
+</td>
+<td>x1 x2 x3 x4
+</td>
+<td>x1 x2 x3 x4 x1 x2
+</td>
+<td>Copies the pair of items two spaces back in the stack to the front.
+</td></tr>
+<tr>
+<td>OP_2ROT
+</td>
+<td>113
+</td>
+<td>0x71
+</td>
+<td>x1 x2 x3 x4 x5 x6
+</td>
+<td>x3 x4 x5 x6 x1 x2
+</td>
+<td>The fifth and sixth items back are moved to the top of the stack.
+</td></tr>
+<tr>
+<td>OP_2SWAP
+</td>
+<td>114
+</td>
+<td>0x72
+</td>
+<td>x1 x2 x3 x4
+</td>
+<td>x3 x4 x1 x2
+</td>
+<td>Swaps the top two pairs of items.
+</td></tr>
+<tr>
+<td>OP_IFDUP
+</td>
+<td>115
+</td>
+<td>0x73
+</td>
+<td>x
+</td>
+<td>x / x x
+</td>
+<td>If the top stack value is not 0, duplicate it.
+</td></tr>
+<tr>
+<td>OP_DEPTH
+</td>
+<td>116
+</td>
+<td>0x74
+</td>
+<td>Nothing
+</td>
+<td>&lt;Stack size&gt;
+</td>
+<td>Counts the number of stack items onto the stack and places the value on the top
+</td></tr>
+<tr>
+<td>OP_DROP
+</td>
+<td>117
+</td>
+<td>0x75
+</td>
+<td>x
+</td>
+<td>Nothing
+</td>
+<td>Removes the top stack item.
+</td></tr>
+<tr>
+<td>OP_DUP
+</td>
+<td>118
+</td>
+<td>0x76
+</td>
+<td>x
+</td>
+<td>x x
+</td>
+<td>Duplicates the top stack item.
+</td></tr>
+<tr>
+<td>OP_NIP
+</td>
+<td>119
+</td>
+<td>0x77
+</td>
+<td>x1 x2
+</td>
+<td>x2
+</td>
+<td>Removes the second-to-top stack item.
+</td></tr>
+<tr>
+<td>OP_OVER
+</td>
+<td>120
+</td>
+<td>0x78
+</td>
+<td>x1 x2
+</td>
+<td>x1 x2 x1
+</td>
+<td>Copies the second-to-top stack item to the top.
+</td></tr>
+<tr>
+<td>OP_PICK
+</td>
+<td>121
+</td>
+<td>0x79
+</td>
+<td>xn ... x2 x1 x0 &lt;n&gt;
+</td>
+<td>xn ... x2 x1 x0 xn
+</td>
+<td>The item <i>n</i> back in the stack is copied to the top.
+</td></tr>
+<tr>
+<td>OP_ROLL
+</td>
+<td>122
+</td>
+<td>0x7a
+</td>
+<td>xn ... x2 x1 x0 &lt;n&gt;
+</td>
+<td>... x2 x1 x0 xn
+</td>
+<td>The item <i>n</i> back in the stack is moved to the top.
+</td></tr>
+<tr>
+<td>OP_ROT
+</td>
+<td>123
+</td>
+<td>0x7b
+</td>
+<td>x1 x2 x3
+</td>
+<td>x2 x3 x1
+</td>
+<td>The top three items on the stack are rotated to the left.
+</td></tr>
+<tr>
+<td>OP_SWAP
+</td>
+<td>124
+</td>
+<td>0x7c
+</td>
+<td>x1 x2
+</td>
+<td>x2 x1
+</td>
+<td>The top two items on the stack are swapped.
+</td></tr>
+<tr>
+<td>OP_TUCK
+</td>
+<td>125
+</td>
+<td>0x7d
+</td>
+<td>x1 x2
+</td>
+<td>x2 x1 x2
+</td>
+<td>The item at the top of the stack is copied and inserted before the second-to-top item.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Data_Manipulation">Data Manipulation</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_CAT
+</td>
+<td>126
+</td>
+<td>0x7e
+</td>
+<td>x1 x2
+</td>
+<td>out
+</td>
+<td>Concatenates two strings.
+</td></tr>
+<tr>
+<td>OP_SPLIT
+</td>
+<td>127
+</td>
+<td>0x7f
+</td>
+<td>x n
+</td>
+<td>x1 x2
+</td>
+<td>Splits byte sequence x at position n.
+</td></tr>
+<tr>
+<td>OP_NUM2BIN
+</td>
+<td>128
+</td>
+<td>0x80
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Converts numeric value a into byte sequence of length b.
+</td></tr>
+<tr>
+<td>OP_BIN2NUM
+</td>
+<td>129
+</td>
+<td>0x81
+</td>
+<td>x
+</td>
+<td>out
+</td>
+<td>Converts byte sequence x into a numeric value.
+</td></tr>
+<tr>
+<td>OP_SIZE
+</td>
+<td>130
+</td>
+<td>0x82
+</td>
+<td>in
+</td>
+<td>in size
+</td>
+<td>Pushes the string length of the top element of the stack (without popping it).
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Bitwise_logic">Bitwise logic</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_INVERT
+</td>
+<td>131
+</td>
+<td>0x83
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>Flips all of the bits in the input.
+</td></tr>
+<tr>
+<td>OP_AND
+</td>
+<td>132
+</td>
+<td>0x84
+</td>
+<td>x1 x2
+</td>
+<td>out
+</td>
+<td>Boolean <i>and</i> between each bit in the inputs.
+</td></tr>
+<tr>
+<td>OP_OR
+</td>
+<td>133
+</td>
+<td>0x85
+</td>
+<td>x1 x2
+</td>
+<td>out
+</td>
+<td>Boolean <i>or</i> between each bit in the inputs.
+</td></tr>
+<tr>
+<td>OP_XOR
+</td>
+<td>134
+</td>
+<td>0x86
+</td>
+<td>x1 x2
+</td>
+<td>out
+</td>
+<td>Boolean <i>exclusive or</i> between each bit in the inputs.
+</td></tr>
+<tr>
+<td>OP_EQUAL
+</td>
+<td>135
+</td>
+<td>0x87
+</td>
+<td>x1 x2
+</td>
+<td>True / false
+</td>
+<td>Returns 1 if the inputs are exactly equal, 0 otherwise.
+</td></tr>
+<tr>
+<td>OP_EQUALVERIFY
+</td>
+<td>136
+</td>
+<td>0x88
+</td>
+<td>x1 x2
+</td>
+<td>Nothing / <i>fail</i>
+</td>
+<td>Same as OP_EQUAL, but runs OP_VERIFY afterward.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Arithmetic">Arithmetic</span></h3>
+<p>BitcoinScript supports arithmetic on bignum values
+A bignum is a byte sequence that represents a numeric value. The length of the byte sequence must be less than or equal to 750,000 bytes. Byte sequences larger than 750,000 bytes are valid in Bitcoin however current rules dictate that they are not recognised as a valid numeric value.
+</p><p>Note that while some operations require parameters to be valid numeric values, they may produce byte sequences which are not valid numeric values (for example, OP_MUL may produce a byte sequence which is too large to validly represent a numeric value).
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_1ADD
+</td>
+<td>139
+</td>
+<td>0x8b
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>1 is added to the input.
+</td></tr>
+<tr>
+<td>OP_1SUB
+</td>
+<td>140
+</td>
+<td>0x8c
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>1 is subtracted from the input.
+</td></tr>
+<tr>
+<td>OP_2MUL  <b>DISABLED</b>
+</td>
+<td>141
+</td>
+<td>0x8d
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>The input is multiplied by 2. (This opcode is scheduled to be re-enabled in the Chronicle update)
+</td></tr>
+<tr>
+<td>OP_2DIV  <b>DISABLED</b>
+</td>
+<td>142
+</td>
+<td>0x8e
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>The input is divided by 2. (This opcode is scheduled to be re-enabled in the Chronicle update)
+</td></tr>
+<tr>
+<td>OP_NEGATE
+</td>
+<td>143
+</td>
+<td>0x8f
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>The sign of the input is flipped.
+</td></tr>
+<tr>
+<td>OP_ABS
+</td>
+<td>144
+</td>
+<td>0x90
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>The input is made positive.
+</td></tr>
+<tr>
+<td>OP_NOT
+</td>
+<td>145
+</td>
+<td>0x91
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>If the input is 0 or 1, it is flipped. Otherwise the output will be 0.
+</td></tr>
+<tr>
+<td>OP_0NOTEQUAL
+</td>
+<td>146
+</td>
+<td>0x92
+</td>
+<td>in
+</td>
+<td>out
+</td>
+<td>Returns 0 if the input is 0. 1 otherwise.
+</td></tr>
+<tr>
+<td>OP_ADD
+</td>
+<td>147
+</td>
+<td>0x93
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>a is added to b.
+</td></tr>
+<tr>
+<td>OP_SUB
+</td>
+<td>148
+</td>
+<td>0x94
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>b is subtracted from a.
+</td></tr>
+<tr>
+<td>OP_MUL
+</td>
+<td>149
+</td>
+<td>0x95
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>a is multiplied by b.
+</td></tr>
+<tr>
+<td>OP_DIV
+</td>
+<td>150
+</td>
+<td>0x96
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>a is divided by b.
+</td></tr>
+<tr>
+<td>OP_MOD
+</td>
+<td>151
+</td>
+<td>0x97
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns the remainder after dividing a by b.
+</td></tr>
+<tr>
+<td>OP_LSHIFT
+</td>
+<td>152
+</td>
+<td>0x98
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Logical left shift b bits. Sign data is discarded
+</td></tr>
+<tr>
+<td>OP_RSHIFT
+</td>
+<td>153
+</td>
+<td>0x99
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Logical right shift b bits. Sign data is discarded
+</td></tr>
+<tr>
+<td>OP_BOOLAND
+</td>
+<td>154
+</td>
+<td>0x9a
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>If both a and b are not 0, the output is 1. Otherwise 0.
+</td></tr>
+<tr>
+<td>OP_BOOLOR
+</td>
+<td>155
+</td>
+<td>0x9b
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>If a or b is not 0, the output is 1. Otherwise 0.
+</td></tr>
+<tr>
+<td>OP_NUMEQUAL
+</td>
+<td>156
+</td>
+<td>0x9c
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns 1 if the numbers are equal, 0 otherwise.
+</td></tr>
+<tr>
+<td>OP_NUMEQUALVERIFY
+</td>
+<td>157
+</td>
+<td>0x9d
+</td>
+<td>a b
+</td>
+<td>Nothing / <i>fail</i>
+</td>
+<td>Same as OP_NUMEQUAL, but runs OP_VERIFY afterward.
+</td></tr>
+<tr>
+<td>OP_NUMNOTEQUAL
+</td>
+<td>158
+</td>
+<td>0x9e
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns 1 if the numbers are not equal, 0 otherwise.
+</td></tr>
+<tr>
+<td>OP_LESSTHAN
+</td>
+<td>159
+</td>
+<td>0x9f
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns 1 if a is less than b, 0 otherwise.
+</td></tr>
+<tr>
+<td>OP_GREATERTHAN
+</td>
+<td>160
+</td>
+<td>0xa0
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns 1 if a is greater than b, 0 otherwise.
+</td></tr>
+<tr>
+<td>OP_LESSTHANOREQUAL
+</td>
+<td>161
+</td>
+<td>0xa1
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns 1 if a is less than or equal to b, 0 otherwise.
+</td></tr>
+<tr>
+<td>OP_GREATERTHANOREQUAL
+</td>
+<td>162
+</td>
+<td>0xa2
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns 1 if a is greater than or equal to b, 0 otherwise.
+</td></tr>
+<tr>
+<td>OP_MIN
+</td>
+<td>163
+</td>
+<td>0xa3
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns the smaller of a and b.
+</td></tr>
+<tr>
+<td>OP_MAX
+</td>
+<td>164
+</td>
+<td>0xa4
+</td>
+<td>a b
+</td>
+<td>out
+</td>
+<td>Returns the larger of a and b.
+</td></tr>
+<tr>
+<td>OP_WITHIN
+</td>
+<td>165
+</td>
+<td>0xa5
+</td>
+<td>x min max
+</td>
+<td>out
+</td>
+<td>Returns 1 if x is within the specified range (left-inclusive), 0 otherwise.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Cryptography">Cryptography</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_RIPEMD160
+</td>
+<td>166
+</td>
+<td>0xa6
+</td>
+<td>in
+</td>
+<td>hash
+</td>
+<td>The input is hashed using RIPEMD-160.
+</td></tr>
+<tr>
+<td>OP_SHA1
+</td>
+<td>167
+</td>
+<td>0xa7
+</td>
+<td>in
+</td>
+<td>hash
+</td>
+<td>The input is hashed using SHA-1.
+</td></tr>
+<tr>
+<td>OP_SHA256
+</td>
+<td>168
+</td>
+<td>0xa8
+</td>
+<td>in
+</td>
+<td>hash
+</td>
+<td>The input is hashed using SHA-256.
+</td></tr>
+<tr>
+<td>OP_HASH160
+</td>
+<td>169
+</td>
+<td>0xa9
+</td>
+<td>in
+</td>
+<td>hash
+</td>
+<td>The input is hashed twice: first with SHA-256 and then with RIPEMD-160.
+</td></tr>
+<tr>
+<td>OP_HASH256
+</td>
+<td>170
+</td>
+<td>0xaa
+</td>
+<td>in
+</td>
+<td>hash
+</td>
+<td>The input is hashed two times with SHA-256.
+</td></tr>
+<tr>
+<td><a href="/index.php/OP_CODESEPARATOR" title="OP CODESEPARATOR">OP_CODESEPARATOR</a>
+</td>
+<td>171
+</td>
+<td>0xab
+</td>
+<td>Nothing
+</td>
+<td>Nothing
+</td>
+<td>All of the signature checking words will only match signatures to the data after the most recently-executed OP_CODESEPARATOR.
+</td></tr>
+<tr>
+<td><a href="/index.php/OP_CHECKSIG" title="OP CHECKSIG">OP_CHECKSIG</a>
+</td>
+<td>172
+</td>
+<td>0xac
+</td>
+<td>sig pubkey
+</td>
+<td>True / false
+</td>
+<td>The entire transaction's outputs, inputs, and script (from the most recently-executed OP_CODESEPARATOR to the end) are hashed. The signature used by OP_CHECKSIG must be a valid signature for this hash and public key. If it is, 1 is returned, 0 otherwise.
+</td></tr>
+<tr>
+<td>OP_CHECKSIGVERIFY
+</td>
+<td>173
+</td>
+<td>0xad
+</td>
+<td>sig pubkey
+</td>
+<td>Nothing / <i>fail</i>
+</td>
+<td>Same as OP_CHECKSIG, but OP_VERIFY is executed afterward.
+</td></tr>
+<tr>
+<td>OP_CHECKMULTISIG
+</td>
+<td>174
+</td>
+<td>0xae
+</td>
+<td>x sig1 sig2 ... &lt;number of signatures&gt; pub1 pub2 &lt;number of public keys&gt;
+</td>
+<td>True / False
+</td>
+<td>Compares the first signature against each public key until it finds an ECDSA match. Starting with the subsequent public key, it compares the second signature against each remaining public key until it finds an ECDSA match. The process is repeated until all signatures have been checked or not enough public keys remain to produce a successful result.  All signatures need to match a public key. Because public keys are not checked again if they fail any signature comparison, signatures must be placed in the scriptSig using the same order as their corresponding public keys were placed in the scriptPubKey or redeemScript.  If all signatures are valid, 1 is returned, 0 otherwise. Due to a bug, an extra unused value (x) is removed from the stack. Script spenders must account for this by adding a junk value (typically zero) to the stack.
+</td></tr>
+<tr>
+<td>OP_CHECKMULTISIGVERIFY
+</td>
+<td>175
+</td>
+<td>0xaf
+</td>
+<td>x sig1 sig2 ... &lt;number of signatures&gt; pub1 pub2 ... &lt;number of public keys&gt;
+</td>
+<td>Nothing / <i>fail</i>
+</td>
+<td>Same as OP_CHECKMULTISIG, but OP_VERIFY is executed afterward.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Used_NOP_opcode_identifiers">Used NOP opcode identifiers</span></h3>
+<p>In Bitcoin's history, new opcodes were added that used reserved NO_OP opcode identifiers. These opcodes have been reverted to the original OP_NOP functionality.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Input
+</th>
+<th>Output
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_NOP2
+<p>(previously OP_CHECKLOCKTIMEVERIFY)
+</p>
+</td>
+<td>177
+</td>
+<td>0xb1
+</td>
+<td>Nothing
+<p>(Previously: x)
+</p>
+</td>
+<td>Nothing
+<p>(Previously: x or fail)
+</p>
+</td>
+<td>NO OPERATION
+<p><i>Evaluation process for UTXOs that pre-date genesis: Mark transaction as invalid if the top stack item is greater than the transaction's nLockTime field, otherwise script evaluation continues as though an OP_NOP was executed. Transaction is also invalid if 1. the stack is empty; or 2. the top stack item is negative; or 3. the top stack item is greater than or equal to 500000000 while the transaction's nLockTime field is less than 500000000, or vice versa; or 4. the input's nSequence field is equal to 0xffffffff. The precise semantics are described in <a rel="nofollow" class="external text" href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki">BIP 0065</a>. </i>
+</p>
+</td></tr>
+<tr>
+<td>OP_NOP3
+<p>(previously OP_CHECKSEQUENCEVERIFY)
+</p>
+</td>
+<td>178
+</td>
+<td>0xb2
+</td>
+<td>Nothing
+<p>(Previously: x)
+</p>
+</td>
+<td>Nothing
+<p>(Previously: x or fail)
+</p>
+</td>
+<td>NO OPERATION
+<p><i>Evaluation process for UTXOs that pre-date genesis: Mark transaction as invalid if the relative lock time of the input (enforced by <a rel="nofollow" class="external text" href="https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki">BIP 0068</a> with nSequence) is not equal to or longer than the value of the top stack item. The precise semantics are described in <a rel="nofollow" class="external text" href="https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki">BIP 0112</a>. </i>
+</p>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Pseudo-words">Pseudo-words</span></h3>
+<p>These words are used internally for assisting with transaction matching. They are invalid if used in actual scripts.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>OP_PUBKEYHASH
+</td>
+<td>253
+</td>
+<td>0xfd
+</td>
+<td>Represents a public key hashed with OP_HASH160.
+</td></tr>
+<tr>
+<td>OP_PUBKEY
+</td>
+<td>254
+</td>
+<td>0xfe
+</td>
+<td>Represents a public key compatible with OP_CHECKSIG.
+</td></tr>
+<tr>
+<td>OP_INVALIDOPCODE
+</td>
+<td>255
+</td>
+<td>0xff
+</td>
+<td>Matches any opcode that is not yet assigned.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Reserved_words">Reserved words</span></h3>
+<p>Any opcode not assigned is also reserved. Using an unassigned opcode makes the transaction <b>invalid</b>.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Word
+</th>
+<th>Opcode
+</th>
+<th>Hex
+</th>
+<th>When used...
+</th></tr>
+<tr>
+<td>OP_RESERVED
+</td>
+<td>80
+</td>
+<td>0x50
+</td>
+<td><b>Transaction is invalid</b> unless occuring in an unexecuted OP_IF branch
+</td></tr>
+<tr>
+<td>OP_RESERVED1
+</td>
+<td>137
+</td>
+<td>0x89
+</td>
+<td><b>Transaction is invalid</b> unless occuring in an unexecuted OP_IF branch
+</td></tr>
+<tr>
+<td>OP_RESERVED2
+</td>
+<td>138
+</td>
+<td>0x8a
+</td>
+<td><b>Transaction is invalid</b> unless occuring in an unexecuted OP_IF branch
+</td></tr>
+<tr>
+<td>OP_NOP1, OP_NOP4-OP_NOP10
+</td>
+<td>176, 179-185
+</td>
+<td>0xb0, 0xb3-0xb9
+</td>
+<td>The word is ignored. Does not mark transaction as invalid.
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Examples">Examples</span></h2>
+<p>For examples of common Bitcoin transaction scripts please see <a href="/index.php/Bitcoin_Transactions" title="Bitcoin Transactions">Bitcoin Transactions</a>
+</p>
+<h2><span class="mw-headline" id="Attribution">Attribution</span></h2>
+<p>This content is based on content sourced from <a rel="nofollow" class="external free" href="https://en.bitcoin.it/wiki/Script">https://en.bitcoin.it/wiki/Script</a> under <a rel="nofollow" class="external text" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>. Although it may have been extensively revised and updated we acknowledge the original authors.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220328064307
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.058 seconds
+Real time usage: 0.065 seconds
+Preprocessor visited node count: 47/1000000
+Preprocessor generated node count: 52/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key bsvwiki-wiki_:pcache:idhash:2-0!canonical and timestamp 20220328064307 and revision id 2718
+ -->
+</div></div><div class="clearfix"></div><div class="printfooter">Retrieved from "<a dir="ltr" href="https://wiki.bitcoinsv.io/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;oldid=2718">https://wiki.bitcoinsv.io/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;oldid=2718</a>"</div>					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="footer pt-4">
+
+			<!-- Footer Links -->
+			<div class="container-fluid text-md-left">
+
+				<!-- Grid row -->
+				<div class="row">
+					<div class="col-md-3 mt-md-0 mt-3"><h5 class="text-uppercase">info</h5><p id="footer-info-lastmod"> This page was last edited on 18 February 2021, at 07:28.</p></div><div class="col-md-3 mt-md-0 mt-3"><h5 class="text-uppercase">places</h5><ul id="footer-places" role="contentinfo"><li id="footer-places-privacy"><a href="/index.php/Bitcoin_Wiki:Privacy_policy" title="Bitcoin Wiki:Privacy policy">Privacy policy</a></li><li id="footer-places-about"><a href="/index.php/Bitcoin_Wiki:About" title="Bitcoin Wiki:About">About Bitcoin Wiki</a></li><li id="footer-places-disclaimer"><a href="/index.php/Bitcoin_Wiki:General_disclaimer" title="Bitcoin Wiki:General disclaimer">Disclaimers</a></li></ul></div><div class="col-md-3 mt-md-0 mt-3"><h5 class="text-uppercase">Utilities</h5><ul id="p-tb"><li id="t-whatlinkshere"><a href="/index.php/Special:WhatLinksHere/Opcodes_used_in_Bitcoin_Script" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/index.php/Special:RecentChangesLinked/Opcodes_used_in_Bitcoin_Script" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;oldid=2718" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/index.php?title=Opcodes_used_in_Bitcoin_Script&amp;action=info" title="More information about this page">Page information</a></li></ul></div><div class="col-md-3 mt-md-0 mt-3"><h5 class="text-uppercase">Navigation</h5><ul id="p-navigation"><li id="n-mainpage-description"><a href="/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents">Help about MediaWiki</a></li></ul></div>
+				</div>
+				<!-- Grid row -->
+
+				<!-- Grid row -->
+				<div class="row pt-4 pb-4">
+					<div class="col">
+						<!-- Copyright -->
+						<div class="text-center">Bitcoin Association<div>
+            <div class="text-center">
+               <a href="https://bitcoinassociation.net">https://bitcoinassociation.net</a>
+						</div>
+						<!-- Copyright -->
+					</div>
+				</div>
+				<!-- Grid row -->
+
+			</div>
+			<!-- Footer Links -->
+		</footer>
+		<!-- Footer -->
+
+
+		
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.058","walltime":"0.065","ppvisitednodes":{"value":47,"limit":1000000},"ppgeneratednodes":{"value":52,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":0,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20220328064307","ttl":86400,"transientcontent":false}}});});</script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124676622-3"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-124676622-3');
+        </script>
+
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":37});});</script>		</body>
+		</html>
+
+		
