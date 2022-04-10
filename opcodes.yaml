@@ -1,13 +1,8 @@
-OP_0, OP_FALSE:
+OP_0:
   hex: '0x00'
   input: Nothing.
   opcode: '0'
   output: (empty value)
-Pushdata Bytelength:
-  hex: 0x01-0x4b
-  input: (special)
-  opcode: 1-75
-  output: data
 OP_PUSHDATA1:
   hex: '0x4c'
   input: (special)
@@ -28,7 +23,7 @@ OP_1NEGATE:
   input: Nothing.
   opcode: '79'
   output: '-1'
-OP_1, OP_TRUE:
+OP_1:
   hex: '0x51'
   input: Nothing.
   opcode: '81'
