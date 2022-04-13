@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 module op_dup_test;
-    logic clk, rst, put_alu_in1, put_alu_in2, put_alu_out1, put_alu_out2 pop_req, done, error;
+    logic clk, rst, put_alu_in1, put_alu_in2, put_alu_out1, put_alu_out2, pop_req, done, error;
     logic [7:0] opcode;
     logic [511:0] data_alu_in1, data_alu_in2, data_alu_out1, data_alu_out2;
     logic [255:0] check_sig_msg;
@@ -11,7 +11,7 @@ module op_dup_test;
     initial begin
         //Stack = new [2];
         //stack_pointer = 1;
-        Stack.push_front(511'hDEAD_BEEF)
+        Stack.push_front(511'hDEAD_BEEF);
         //Stack[0] = {511'hDEAD_BEEF};
         clk = 0;
         rst = 1;
@@ -21,6 +21,9 @@ module op_dup_test;
         rst = 0;
         #1;
         drive_dup_opcode();
+		display_stack();
+		drive_dup_opcode();
+		display_stack();
         rst = 1;
         #10;
         $finish;
@@ -35,7 +38,6 @@ module op_dup_test;
             put_alu_in1 = 1;
             data_alu_in1 = Stack.pop_front();
             opcode = `OP_DUP;
-            stack_pointer-=1;
         end
         @(posedge clk & (done | error));
         if(error) begin
@@ -48,5 +50,12 @@ module op_dup_test;
                 Stack.push_front(data_alu_out2);
         end
     endtask
+
+	function display_stack();
+		$display("Stack = ");
+		for(int i=Stack.size()-1;i>=0;i--) begin
+			$display("[%0h]",Stack[i]);
+		end
+	endfunction
 
 endmodule

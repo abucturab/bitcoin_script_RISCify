@@ -12,10 +12,17 @@ module check_sig_msg(
 
 enum logic [3:0] {GET_NUM_KEY, GET_KEYS, GET_NUM_SIG, GET_SIG, CHECK_SIG, INVALID, DONE, INIT} State, Next_State;
 logic [1:0] num_key;
+logic start_checksig, sig_done, sig_error;
+logic [511:0] sig_input;
+logic [255:0] sig_msg;
+logic [511:0] pub_key;
+logic [2:0] key_cnt, num_sig,num_verif,sig_cnt;
+logic [2:0][511:0] key_store;
+logic [2:0][511:0] sig_store;
 
-ecsda ecdsa_unit(
+ecsda_verify ecdsa_unit(
     .clk(clk),
-    .rst(rst),
+    .reset(rst),
     .init_verify(start_checksig),
     .my_signature(sig_input),
     .message(sig_msg),
@@ -24,15 +31,18 @@ ecsda ecdsa_unit(
     .invalid_error(sig_error)
 );
 
-logic [2:0] key_iter, sig_iter, num_verif;
+logic [2:0] key_iter, sig_iter;
 
-always_ff @(posedge clk && State==CHECK_SIG) begin
-    if(sig_done) begin
+always_ff @(posedge clk) begin
+	if(rst) begin
+		num_verif <= 0;
+	end
+    else if(sig_done & State==CHECK_SIG) begin
         key_iter<=key_iter-1;
         sig_iter<=sig_iter-1;
         num_verif<=num_verif+1;
     end
-    else if(sig_error) begin
+    else if(sig_error & State==CHECK_SIG) begin
         key_iter<=key_iter-1;
     end
 end
@@ -43,9 +53,10 @@ always_comb multsig_fail = State==INVALID ? 1 : 0;
 //State machine behavior
 always_ff @ (posedge clk)
 begin
-    if(rst)
+	if(rst) begin
         State <= INIT;
-        num_verif=0;
+        //num_verif=0;
+	end
     else
         State <= Next_State;
 end
@@ -66,7 +77,7 @@ always_comb begin
         end
         GET_KEYS:
         begin
-            pop = key_cnt!=0 ? 1 : 0; //Implement key counter to decrement when state is in GET_KEYS
+            pop_req = key_cnt!=0 ? 1 : 0; //Implement key counter to decrement when state is in GET_KEYS
             key_store[key_cnt-1] = pkt;
             if(key_cnt==1)
                 Next_State = GET_NUM_SIG;
@@ -87,7 +98,7 @@ always_comb begin
         end
         GET_SIG:
         begin
-            pop = sig_cnt!=0 ? 1 : 0; //Implement sig counter to decrement when state is in GET_SIG
+            pop_req = sig_cnt!=0 ? 1 : 0; //Implement sig counter to decrement when state is in GET_SIG
             sig_store[sig_cnt-1] = pkt;
             if(sig_cnt==1)
                 Next_State = CHECK_SIG;
