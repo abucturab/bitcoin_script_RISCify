@@ -1,0 +1,137 @@
+0 
+31
++itf+/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/vcsdp_lite.tab
++v2k
++vcsd1
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/libvirsim.so /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/liberrorinf.so /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/libsnpsmalloc.so /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/libvfs.so
+-Mout=simv
+-Msaverestoreobj=/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/include
+-Mxllcflags=
+-debug_access+all
+-f file_list.f
+-full64
+-gen_obj
+-lca
+-picarchive
+-sverilog
+-timescale=1ns/1ps
+/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/bin/vcs1
+file_list.f
+58
+XDG_SESSION_ID=33666
+XDG_RUNTIME_DIR=/run/user/530005850
+XDG_DATA_DIRS=/home/grads/a/abuturab/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+VMR_MODE_FLAG=64
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LCAMSG_PRINT_OFF=1
+VCS_HOME=/opt/coe/synopsys/vcs/Q-2020.03-SP1-1
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+USER_PRINCIPAL_NAME=abuturab@AUTH.TAMU.EDU
+USER_DEFINED_COMPILE_OPTIONS=-full64
+UNAME=/bin/uname
+TOOL_HOME=/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64
+SSH_TTY=/dev/pts/42
+SSH_CONNECTION=172.31.39.37 50601 10.55.150.37 22
+SSH_CLIENT=172.31.39.37 50601 22
+SPIKE_PATH=/home/grads/a/abuturab/ML-IN-DV/lowRISC/bin
+SELINUX_USE_CURRENT_RANGE=
+SELINUX_ROLE_REQUESTED=
+SELINUX_LEVEL_REQUESTED=
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+RISCV_TOOLCHAIN=/home/grads/a/abuturab/ML-IN-DV/lowRISC/lowrisc-toolchain-gcc-rv32imc-20210412-1
+RISCV_OBJCOPY=/home/grads/a/abuturab/ML-IN-DV/lowRISC/lowrisc-toolchain-gcc-rv32imc-20210412-1/bin/riscv32-unknown-elf-objcopy
+RISCV_GCC=/home/grads/a/abuturab/ML-IN-DV/lowRISC/lowrisc-toolchain-gcc-rv32imc-20210412-1/bin/riscv32-unknown-elf-gcc
+QT_GRAPHICSSYSTEM_CHECKED=1
+QTLIB=/usr/lib/qt-3.3/lib
+QTINC=/usr/lib/qt-3.3/include
+QTDIR=/usr/lib/qt-3.3
+OVA_UUM=0
+MODULESHOME=/usr/share/Modules
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
+ML_IN_DV_PATH=/home/grads/a/abuturab/ML-IN-DV
+LOADEDMODULES=
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+KRB5CCNAME=FILE:/tmp/krb5cc_cdc530005850_gCdLet
+IBEX_REPO=/home/grads/a/abuturab/ML-IN-DV/lowRISC/ibex
+HISTTIMEFORMAT=%F %T 
+HISTFILESIZE=10000
+HISTCONTROL=ignoredups
+GUESTFISH_RESTORE=\e[0m
+GUESTFISH_PS1=\[\e[1;32m\]><fs>\[\e[0;31m\] 
+GUESTFISH_OUTPUT=\e[0m
+GUESTFISH_INIT=\e[1;34m
+DA_SESSION_ID_AUTH=8ac9bd92-8269-1849-8207-555dfa978430
+C_INCLUDE_PATH=/opt/coe/cadence/JASPER2021/include/:/opt/coe/cadence/JASPER/include/
+CDS_LIC_FILE=5280@license.ece.tamu.edu
+CDC_PREW2KHOST=hera3
+CDC_LOCALHOST=hera3.engr.tamu.edu
+CDC_JOINED_ZONE=CN=Servers,CN=Override,CN=ECEN,CN=Depts,CN=Global,CN=Zones,OU=Centrify,OU=Services,DC=engr,DC=tamu,DC=edu
+CDC_JOINED_SITE=TAMU
+CDC_JOINED_DOMAIN=engr.tamu.edu
+CDC_JOINED_DC=ops2.engr.tamu.edu
+BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`_}
+AMBERHOME=/opt/coe/amber14
+0
+36
+1649870486 ../V1_Script/scriptTop_rev1.sv
+1649870554 ../V1_Script/AluScript_rev1.sv
+1649870332 ../V1_Script/scriptHeader.vh
+1649828488 ../ripemd160/ripemd160.sv
+1649826988 ../ripemd160/sub_block_right.sv
+1649826986 ../ripemd160/sub_block_left.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/rng/chacha.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/rng/quarter_round.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/ecdsa/verify/ecdsa_verify.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/ecdsa/verify/ecdsa_verify_datapath.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/ecdsa/verify/ecdsa_verify_control.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/ecdsa/sign/ecdsa_sign_datapath.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/ecdsa/sign/ecdsa_sign_control.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/ecdsa/sign/ecdsa_sign.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/point_operations/point_double.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/point_operations/gen_point.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/point_operations/point_add.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/modular_operations/barrett_reduction.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/modular_operations/modular_inverse.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/modular_operations/multiplier.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/modular_operations/square_root.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/modular_operations/add.sv
+1649611279 ../EllipticCurves_SystemVerilog/src/primitives/hash/ripemd_160.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/hash/SHA256.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/hash/sha_padder.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/hash/sha_256.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives/hash/sha_mainloop.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/components/reg_256.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/components/elliptic_curve_structs.sv
+1649610303 ../EllipticCurves_SystemVerilog/src/rng
+1649610303 ../EllipticCurves_SystemVerilog/src/primitives
+1649610303 ../EllipticCurves_SystemVerilog/src/elgamal
+1649610303 ../EllipticCurves_SystemVerilog/src/ecdsa
+1649610303 ../EllipticCurves_SystemVerilog/src/components
+1649870167 file_list.f
+1641503520 /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/vcsdp_lite.tab
+4
+1641503518 /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/libvirsim.so
+1641503522 /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/liberrorinf.so
+1641503522 /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/libsnpsmalloc.so
+1641503520 /opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/libvfs.so
+1649870646 simv.daidir
+-1 partitionlib

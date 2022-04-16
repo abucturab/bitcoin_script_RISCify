@@ -1,0 +1,9 @@
+#!/bin/sh -h 
+PYTHONHOME=/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/etc/search/pyh
+export PYTHONHOME
+PYTHONPATH=/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/pylib27
+export PYTHONPATH
+LD_LIBRARY_PATH=/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib:/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/lib/pylib27
+export LD_LIBRARY_PATH
+/opt/coe/synopsys/vcs/Q-2020.03-SP1-1/linux64/bin/vcsfind_create_index.exe  -z  "/home/grads/a/abuturab/SDC689/bitcoin_script_RISCify/sim/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" "/home/grads/a/abuturab/SDC689/bitcoin_script_RISCify/sim/simv.daidir/debug_dump/fsearch/./idents_spzZQJ.xml.gz" -o "/home/grads/a/abuturab/SDC689/bitcoin_script_RISCify/sim/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
+\mv "/home/grads/a/abuturab/SDC689/bitcoin_script_RISCify/sim/simv.daidir/debug_dump/fsearch/fsearch.db_tmp" "/home/grads/a/abuturab/SDC689/bitcoin_script_RISCify/sim/simv.daidir/debug_dump/fsearch/fsearch.db"
